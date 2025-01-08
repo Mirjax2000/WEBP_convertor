@@ -49,7 +49,7 @@ def convertor(file_list: list, compress: int = 80) -> None:
     except ValueError as e:
         console.print("Error", e, style="red")
         console.print("Closing program", style="green")
-        sleep(2)
+        sleep(3)
         exit(0)
 
 
@@ -57,10 +57,12 @@ def main() -> None:
     """Main function"""
     console.clear()
     files: list = load_files()
-    compresse: int = int(input("Enter compression level (0 - 100%): "))
-    convertor(files, compresse)
-    console.print("Done", style="bold blue")
-    sleep(2)
+    compress: int = int(input("Enter compression level (0 - 100%): "))
+    if compress =='':
+        compress = 80
+    convertor(files, compress)
+    console.print("-- Done --", style="bold blue")
+    sleep(3)
 
 
 if __name__ == "__main__":
