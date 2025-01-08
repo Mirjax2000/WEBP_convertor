@@ -57,9 +57,8 @@ def main() -> None:
     """Main function"""
     console.clear()
     files: list = load_files()
-    compress: int = int(input("Enter compression level (0 - 100%): "))
-    if compress =='':
-        compress = 80
+    compress_input: str = input("Enter compression level (0 - 100%) default(80%): ")
+    compress:int = 80 if compress_input == '' else int(compress_input)
     convertor(files, compress)
     console.print("-- Done --", style="bold blue")
     sleep(3)
